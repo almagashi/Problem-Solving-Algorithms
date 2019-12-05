@@ -1,0 +1,553 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Part A [HCs #responsibility and #professionalism; #ComputationalSolutions] ###\n",
+    "\n",
+    "○ Every CS110 assignment begins with a check-up on your class responsibilities and\n",
+    "professional standing, as well as your ability to address one of the course LOs #ComputationalSolutions. Thus to complete the first part of this assignment, you will\n",
+    "need to take a screenshot of your CS110 dashboard on Forum where the following is\n",
+    "visible:\n",
+    "\n",
+    "■ your name.\n",
+    "\n",
+    "■ your absences for the course have been set to excused up to session 5.2\n",
+    "(inclusively).\n",
+    "\n",
+    "This will be evidence that you have submitted acceptable pre-class and make-up work\n",
+    "for a CS110 session you may have missed. Check the specific CS110 make-up and\n",
+    "pre-class policies in the syllabus of the course."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<img src=\"foto.jpg\">"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Part B [#ComputationalSolutions, #DataStructures] ###\n",
+    "\n",
+    "○ Prepare a table containing a list of all the activities that you plan to do in the city of your\n",
+    "rotation, with a short, compelling justification why they are interesting. Make sure you\n",
+    "plan activities that involve visiting landmarks or other locations that highlight particular\n",
+    "socio-culture aspects of the rotation city where you are. An activity is decomposed in a set of tasks which are exclusively of a cultural nature (not routine nor academic). Your\n",
+    "assignment needs to include:\n",
+    "\n",
+    "■ at least 5 activities, and each activity can be subdivided into 3 to k tasks.\n",
+    "\n",
+    "■ At least 10 tasks on your list need to be a multitasking type of tasks."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "╒═════════════════════╤══════════════════════════════════════════════════════════╤═══════════════════════════════════════╕\n",
+      "│ Activity            │ Reason of visit                                          │ Tasks to complete (see table below)   │\n",
+      "╞═════════════════════╪══════════════════════════════════════════════════════════╪═══════════════════════════════════════╡\n",
+      "│ Hanok Village Visit │ Beautiful traditional houses and clothings               │ 1,2,3,6,10,14,17                      │\n",
+      "├─────────────────────┼──────────────────────────────────────────────────────────┼───────────────────────────────────────┤\n",
+      "│ N Seoul Tower       │ A good view of Seoul from the top of the Namsan Mountain │ 1,2,3,4,5,6,9,14,17                   │\n",
+      "├─────────────────────┼──────────────────────────────────────────────────────────┼───────────────────────────────────────┤\n",
+      "│ Namdaemun Market    │ Cheap prices for authentic Korean fruit                  │ 1,2,3,6,7,8,11,12,14,17               │\n",
+      "├─────────────────────┼──────────────────────────────────────────────────────────┼───────────────────────────────────────┤\n",
+      "│ Korean BBQ          │ Typical restaurant of Korea                              │ 1,2,3,6,11,14,15,17                   │\n",
+      "├─────────────────────┼──────────────────────────────────────────────────────────┼───────────────────────────────────────┤\n",
+      "│ KPop Karaoke        │ Listen and sing Korean Music                             │ 1,2,3,6,11,13,14,16,17                │\n",
+      "╘═════════════════════╧══════════════════════════════════════════════════════════╧═══════════════════════════════════════╛\n"
+     ]
+    }
+   ],
+   "source": [
+    "# import tabulate for plotting a neat table \n",
+    "\n",
+    "from tabulate import tabulate\n",
+    "\n",
+    "# name the activities and decriptive information about them\n",
+    "\n",
+    "activities = [('Hanok Village Visit', 'Beautiful traditional houses and clothings', '1,2,3,6,10,14,17'),\n",
+    "              ('N Seoul Tower', 'A good view of Seoul from the top of the Namsan Mountain','1,2,3,4,5,6,9,14,17'),\n",
+    "              ('Namdaemun Market', 'Cheap prices for authentic Korean fruit', '1,2,3,6,7,8,11,12,14,17'),\n",
+    "              ('Korean BBQ', 'Typical restaurant of Korea', '1,2,3,6,11,14,15,17'),\n",
+    "              ('KPop Karaoke', 'Listen and sing Korean Music', '1,2,3,6,11,13,14,16,17')]\n",
+    "\n",
+    "# name the headers\n",
+    "\n",
+    "headers = ['Activity', 'Reason of visit', 'Tasks to complete (see table below)']\n",
+    "\n",
+    "print(tabulate(activities, headers=headers, tablefmt='fancy_grid'))                 "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "╒═══════════╤════════════════════════════════╤═════════════════╤════════════════╤════════════════╤══════════╤════════════╕\n",
+      "│   Task ID │ Task Description               │   Task Duration │ Multitasking   │   Dependencies │   Status │   Priority │\n",
+      "╞═══════════╪════════════════════════════════╪═════════════════╪════════════════╪════════════════╪══════════╪════════════╡\n",
+      "│         1 │ T Money Card Recharge          │             5   │ No             │              0 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│         2 │ Activate KakaoMap/Naver App    │             1   │ Yes            │              0 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│         3 │ Take a bus                     │            30   │ Yes            │              1 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│         4 │ Buy a ticket for N Seoul Tower │            10   │ No             │              2 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│         5 │ Buy a CableCar Ticket          │            10   │ No             │              2 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│         6 │ Exchange Currency to Won       │             7   │ No             │              1 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│         7 │ Bring the shopping list        │             0.5 │ Yes            │              0 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│         8 │ Bring a tote bag               │             0.5 │ Yes            │              0 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│         9 │ Visit around N Seoul Tower     │            60   │ Yes            │              7 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│        10 │ Roam around Hanok Village      │            80   │ Yes            │              6 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│        11 │ Invite friends                 │             1   │ Yes            │              0 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│        12 │ Shopping/Namdaemun Market      │            90   │ Yes            │              9 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│        13 │ Bring ARC [Korean ID]          │             0.5 │ Yes            │              0 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│        14 │ Activate Google Translate App  │             1   │ Yes            │              0 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│        15 │ Eat at KBBQ                    │            90   │ Yes            │              7 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│        16 │ Sing/Listen to Kpop at Karaoke │            90   │ Yes            │              8 │        0 │          0 │\n",
+      "├───────────┼────────────────────────────────┼─────────────────┼────────────────┼────────────────┼──────────┼────────────┤\n",
+      "│        17 │ Take pictures                  │            15   │ Yes            │              0 │        0 │          0 │\n",
+      "╘═══════════╧════════════════════════════════╧═════════════════╧════════════════╧════════════════╧══════════╧════════════╛\n"
+     ]
+    }
+   ],
+   "source": [
+    "# create the tasks and important descriptive information\n",
+    "\n",
+    "mydata = [[1, \"T Money Card Recharge \", 5, \"No\", 0, 0, 0],\n",
+    "          [2, \"Activate KakaoMap/Naver App\", 1, \"Yes\", 0, 0,0],\n",
+    "          [3, \"Take a bus\", 30, \"Yes\", 1, 0,0],\n",
+    "          [4, \"Buy a ticket for N Seoul Tower\", 10, \"No\", 2, 0,0],\n",
+    "          [5, \"Buy a CableCar Ticket\", 10, \"No\", 2, 0,0],\n",
+    "          [6, \"Exchange Currency to Won\", 7, \"No\", 1, 0,0],\n",
+    "          [7, \"Bring the shopping list\", 0.5, \"Yes\", 0, 0,0],\n",
+    "          [8, \"Bring a tote bag\", 0.5, \"Yes\", 0, 0,0],\n",
+    "          [9, \"Visit around N Seoul Tower\", 60, \"Yes\", 7, 0,0],\n",
+    "          [10, \"Roam around Hanok Village\", 80, \"Yes\", 6, 0,0],\n",
+    "          [11, \"Invite friends\", 1, \"Yes\", 0, 0,0],\n",
+    "          [12, \"Shopping/Namdaemun Market\", 90, \"Yes\", 9, 0,0],\n",
+    "          [13, \"Bring ARC [Korean ID]\", 0.5, \"Yes\", 0, 0,0],\n",
+    "          [14, \"Activate Google Translate App\", 1, \"Yes\", 0, 0,0],\n",
+    "          [15, \"Eat at KBBQ\", 90, \"Yes\", 7, 0,0],\n",
+    "          [16, \"Sing/Listen to Kpop at Karaoke\", 90, \"Yes\", 8, 0,0],\n",
+    "          [17, \"Take pictures\", 15, \"Yes\", 0, 0,0]]\n",
+    "\n",
+    "# create the headers of the table\n",
+    "\n",
+    "headers = ['Task ID', 'Task Description', 'Task Duration', 'Multitasking', 'Dependencies', 'Status', 'Priority']\n",
+    "\n",
+    "def showTable():\n",
+    "    print(tabulate([tuple(x) for x in mydata], headers=headers, tablefmt=\"fancy_grid\"))\n",
+    "showTable()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Part C [#ComputationalSolutions] ###\n",
+    "\n",
+    "○ For multitasking tasks, how would you determine the optimal partitioning time? Test at\n",
+    "least 2 different values or strategies and analyze their computational behavior."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Task ID: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\n",
+      "Task Name: ['T Money Card Recharge ', 'Activate KakaoMap/Naver App', 'Take a bus', 'Buy a ticket for N Seoul Tower', 'Buy a CableCar Ticket', 'Exchange Currency to Won', 'Bring the shopping list', 'Bring a tote bag', 'Visit around N Seoul Tower', 'Roam around Hanok Village', 'Invite friends', 'Shopping/Namdaemun Market', 'Bring ARC (Korean ID)', 'Activate Google Translate App', 'Eat at KBBQ', 'Sing/Listen to Kpop at Karaoke', 'Take pictures']\n",
+      "Task Times: [5, 1, 30, 10, 10, 7, 0.5, 0.5, 60, 80, 1, 90, 0.5, 1, 90, 90, 15]\n",
+      "Task Status: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\n",
+      "Multitasking possible (Task ID): [2, 3, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]\n",
+      "Multitasking not possible (Task ID): [1, 4, 5, 6]\n",
+      "Dependent tasks (Task ID): [3, 4, 5, 6, 9, 10, 12, 15, 16]\n",
+      "Independent tasks (Task ID): [1, 2, 7, 8, 11, 13, 14, 17]\n"
+     ]
+    }
+   ],
+   "source": [
+    "'''\n",
+    "Extract important data from the dataset created.\n",
+    "Tasks will be accessed by TASK ID.\n",
+    "'''\n",
+    "\n",
+    "# turn tuple into a list\n",
+    "a = list(list(mydata))\n",
+    "\n",
+    "# task ID\n",
+    "task_ID = [mydata[i][0] for i in range(17)]\n",
+    "\n",
+    "print ('Task ID:', task_ID)\n",
+    "\n",
+    "# task names\n",
+    "task_name = [mydata[i][1] for i in range(17)]\n",
+    "\n",
+    "print ('Task Name:', task_name)\n",
+    "\n",
+    "# task times\n",
+    "task_time = [mydata[i][2] for i in range(17)]\n",
+    "\n",
+    "print ('Task Times:', task_time)\n",
+    "\n",
+    "# multitasking tasks\n",
+    "multitasking = [mydata[i][3] for i in range(17)]\n",
+    "\n",
+    "# dependencies\n",
+    "dependencies = [mydata[i][4] for i in range(17)]\n",
+    "\n",
+    "# task status\n",
+    "status = [mydata[i][5] for i in range(17)]\n",
+    "\n",
+    "print ('Task Status:', status)\n",
+    "\n",
+    "\n",
+    "# store multitasks task in multitask\n",
+    "multitask = []\n",
+    "\n",
+    "# store nonmultitask tasks in nonmultitask\n",
+    "nonmultitask = []\n",
+    "\n",
+    "for i in range(len(multitasking)):\n",
+    "    if multitasking[i]=='Yes':\n",
+    "        multitask.append(i+1)\n",
+    "    if multitasking[i]=='No' :\n",
+    "        nonmultitask.append(i+1)\n",
+    "    \n",
+    "\n",
+    "print ('Multitasking possible (Task ID):', multitask)\n",
+    "print ('Multitasking not possible (Task ID):', nonmultitask)\n",
+    "\n",
+    "\n",
+    "# store dependent tasks in dependent\n",
+    "dependent = []\n",
+    "\n",
+    "# store independent tasks in independent\n",
+    "independent = []\n",
+    "\n",
+    "for i in range(len(dependencies)):\n",
+    "    if dependencies[i]==0:\n",
+    "        independent.append(i+1)\n",
+    "    else:\n",
+    "        dependent.append(i+1)\n",
+    "        \n",
+    "print ('Dependent tasks (Task ID):', dependent)\n",
+    "print ('Independent tasks (Task ID):', independent)\n",
+    "        \n",
+    "\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Part D [#PythonProgramming, #CodeReadability] ###\n",
+    "○ Write a Task Priority Scheduler in Python 3, which receives the list of tasks above as\n",
+    "input and returns an optimal task schedule for you to follow. Please refrain from using\n",
+    "any external Python library besides the random module."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "time:5\n",
+      "[[2, 7], [2, 8], [2, 11], [2, 13], [2, 14], [7, 2], [7, 8], [7, 11], [7, 13], [7, 14], [8, 2], [8, 7], [8, 11], [8, 13], [8, 14], [11, 2], [11, 7], [11, 8], [11, 13], [11, 14], [13, 2], [13, 7], [13, 8], [13, 11], [13, 14], [14, 2], [14, 7], [14, 8], [14, 11], [14, 13]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# possible combination\n",
+    "possible=[] \n",
+    "\n",
+    "# tasks time added (sum)\n",
+    "times=[]\n",
+    "\n",
+    "# time given\n",
+    "time=int(input('time:'))\n",
+    "\n",
+    "def combinations(time):  \n",
+    "    for n in range(len(task_time)):\n",
+    "        for j in range(len(task_time)):\n",
+    "            if task_time[n]+task_time[j]<=time and n!=j:\n",
+    "                combination=[n+1,j+1]\n",
+    "                timeleft=[time-(task_time[n]+task_time[j])]\n",
+    "                possible.append(combination) \n",
+    "                times.append(timeleft)\n",
+    "                \n",
+    "    print (possible) \n",
+    "\n",
+    "combinations(time)\n",
+    "            \n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "invalid syntax (<ipython-input-64-f37ba1f95735>, line 12)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;36m  File \u001b[1;32m\"<ipython-input-64-f37ba1f95735>\"\u001b[1;36m, line \u001b[1;32m12\u001b[0m\n\u001b[1;33m    priorities = mydata[i][6] for i in range(17)\u001b[0m\n\u001b[1;37m                                ^\u001b[0m\n\u001b[1;31mSyntaxError\u001b[0m\u001b[1;31m:\u001b[0m invalid syntax\n"
+     ]
+    }
+   ],
+   "source": [
+    "tasks = [1,2,3,4,5]\n",
+    "# time = input('time:')\n",
+    "def prioritize (tasks):\n",
+    "    for i in range(0, len(tasks)):\n",
+    "        priority = tasks[i][4] * 10000\n",
+    "        priority+=tasks[i][2]\n",
+    "        tasks[i][6] = priority\n",
+    "\n",
+    "prioritize(mydata)\n",
+    "showTable()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Defining some basic binary tree functions\n",
+    "#\n",
+    "def left(i):         # left(i): takes as input the array index of a parent node in the binary tree and \n",
+    "    return 2*i + 1   #          returns the array index of its left child.\n",
+    "\n",
+    "def right(i):        # right(i): takes as input the array index of a parent node in the binary tree and \n",
+    "    return 2*i + 2   #           returns the array index of its right child.\n",
+    "\n",
+    "def parent(i):       # parent(i): takes as input the array index of a node in the binary tree and\n",
+    "    return (i-1)//2  #            returns the array index of its parent\n",
+    "\n",
+    "\n",
+    "# Defining the Python class MaxHeapq to implement a max heap data structure.\n",
+    "# Every Object in this class has two attributes:\n",
+    "#           - heap : A Python list where key values in the max heap are stored\n",
+    "#           - heap_size: An integer counter of the number of keys present in the max heap\n",
+    "class MaxHeapq:\n",
+    "    \"\"\" \n",
+    "    This class implements properties and methods that support a max priority queue data structure\n",
+    "    \"\"\"  \n",
+    "    # Class initialization method. Use: heapq_var = MaxHeapq()\n",
+    "    def __init__(self):        \n",
+    "        self.heap       = []\n",
+    "        self.heap_size  = 0\n",
+    "\n",
+    "    # This method returns the highest key in the priority queue. \n",
+    "    #   Use: key_var = heapq_var.max()\n",
+    "    def maxk(self):              \n",
+    "        return self.heap[0]     \n",
+    "    \n",
+    "    # This method implements the INSERT key into a priority queue operation\n",
+    "    #   Use: heapq_var.heappush(key)\n",
+    "    def heappush(self, key):   \n",
+    "        \"\"\"\n",
+    "        Inserts the value of key onto the priority queue, maintaining the max heap invariant.\n",
+    "        \"\"\"\n",
+    "        self.heap.append(-float(\"inf\"))\n",
+    "        self.increase_key(self.heap_size,key)\n",
+    "        self.heap_size+=1\n",
+    "        \n",
+    "    # This method implements the INCREASE_KEY operation, which modifies the value of a key\n",
+    "    # in the max priority queue with a higher value. \n",
+    "    #   Use heapq_var.increase_key(i, new_key)\n",
+    "    def increase_key(self, i, key): \n",
+    "        if key < self.heap[i]:\n",
+    "            raise ValueError('new key is smaller than the current key')\n",
+    "        self.heap[i] = key\n",
+    "        while i > 0 and self.heap[parent(i)] < self.heap[i]:\n",
+    "            j = parent(i)\n",
+    "            holder = self.heap[j]\n",
+    "            self.heap[j] = self.heap[i]\n",
+    "            self.heap[i] = holder\n",
+    "            i = j    \n",
+    "            "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class MinHeapq:\n",
+    "    \"\"\" \n",
+    "    This class implements properties and methods that support a min priority queue data structure\n",
+    "    \"\"\"  \n",
+    "    # Class initialization method. Use: heapq_var = MaxHeapq()\n",
+    "    def __init__(self):\n",
+    "        self.heap       = []\n",
+    "        self.heap_size  = 0\n",
+    "\n",
+    "    # This method returns the lowest key in the priority queue. \n",
+    "    #   Use: key_var = heapq_var.mink()\n",
+    "    def mink(self):              \n",
+    "        return self.heap[0]     \n",
+    "    \n",
+    "    # This method implements the INSERT key into a priority queue operation\n",
+    "    #   Use: heapq_var.heappush(key)\n",
+    "    def heappush(self, key):   \n",
+    "        \"\"\"\n",
+    "        Inserts the value of key onto the priority queue, maintaining the max heap invariant.\n",
+    "        \"\"\"\n",
+    "        self.heap.append(float(\"inf\"))\n",
+    "        self.decrease_key(self.heap_size,key)\n",
+    "        self.heap_size+=1\n",
+    "        \n",
+    "    # This method implements the DECRASE_KEY operation, which modifies the value of a key\n",
+    "    # in the min priority queue with a lower value. \n",
+    "    #   Use heapq_var.decrease_key(i, new_key)\n",
+    "    def decrease_key(self, i, key): \n",
+    "        if key > self.heap[i]:\n",
+    "            raise ValueError('new key is bigger than the current key')\n",
+    "        self.heap[i] = key\n",
+    "        while i > 0 and self.heap[parent(i)] > self.heap[i]:\n",
+    "            j = parent(i)\n",
+    "            holder = self.heap[j]\n",
+    "            self.heap[j] = self.heap[i]\n",
+    "            self.heap[i] = holder\n",
+    "            i = j\n",
+    "  # This method implements the MIN_HEAPIFY operation for the min priority queue. The input is \n",
+    "    # the array index of the root node of the subtree to be heapify.\n",
+    "    #   Use heapq_var.heapify(i)        \n",
+    "    def heapify(self, i):\n",
+    "        l = left(i)\n",
+    "        r = right(i)\n",
+    "        heap = self.heap\n",
+    "        if l <= (self.heap_size-1) and heap[l]<heap[i]:\n",
+    "            smallest = l\n",
+    "        else:\n",
+    "            smallest = i\n",
+    "        if r <= (self.heap_size-1) and heap[r] < heap[smallest]:\n",
+    "            smallest = r\n",
+    "        if smallest != i:\n",
+    "            heap[i], heap[smallest] = heap[smallest], heap[i]\n",
+    "            self.heapify(smallest)\n",
+    "\n",
+    "    # This method implements the EXTRACT_MAX operation. It returns the largest key in \n",
+    "    # the max priority queue and removes this key from the max priority queue.\n",
+    "    #   Use key_var = heapq_var.heappop() \n",
+    "    def heappop(self):\n",
+    "        if self.heap_size < 1:\n",
+    "            raise ValueError('Heap underflow: There are no keys in the priority queue ')\n",
+    "        mink = self.heap[0]\n",
+    "        self.heap[0] = self.heap[-1]\n",
+    "        self.heap.pop()\n",
+    "        self.heap_size-=1\n",
+    "        self.heapify(0)\n",
+    "        return mink"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[0.5, 0.5, 0.5, 5, 1, 1, 1, 15, 70060, 60080, 20010, 90090, 10030, 10007, 70090, 80090, 20010]\n"
+     ]
+    }
+   ],
+   "source": [
+    "priorities = [mydata[i][6] for i in range(17)]\n",
+    "my_heap_list = MinHeapq()\n",
+    "\n",
+    "for i in priorities:\n",
+    "    my_heap_list.heappush(i)\n",
+    "\n",
+    "print(my_heap_list.heap)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Part E [#ComputationalCritique] ###\n",
+    "○ Produce a critical analysis of your scheduler, highlighting all the benefits in following the\n",
+    "algorithmic directives and any failure modes it runs into."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
